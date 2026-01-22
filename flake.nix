@@ -17,7 +17,7 @@
           ...
         }:
         let
-          tex = pkgs.texlive.combine { inherit (pkgs.texlive) scheme-tetex; };
+          tex = pkgs.texlive.combine { inherit (pkgs.texlive) scheme-tetex ieeetran; };
         in
         {
           _module.args.pkgs = import inputs.nixpkgs {
