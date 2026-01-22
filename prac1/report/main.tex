@@ -13,10 +13,25 @@
 
 \section{Data}
 
+This is a toy deep learning model trained on the PhysionNet’s MIT-BIH dataset to
+classify heartbeats. 
+
 \section{Model}
+
+The model used in this report has a basic convolutional architecture.
+The model is composed of three conv1d layers. Each have 32 kernels of size 5
+with ReLU activation.
+Following the convolutional layers are a max pooling layer of size 5, strides 2.
+Then a flatten layer. Two fully connected layers with relu, then softmax, respectively.
 
 \section{Training}
 
+For training, we use the categorical cross entropy as loss function, Adam optimizer, and metrics is accuracy. 
+
+Then we train with batch size 64, and 12 epochs.
+
 \section{Result}
+
+The result is 9.9785 on test loss, and 0.8276 on test accuracy.
 
 \end{document}
