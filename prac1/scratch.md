@@ -33,3 +33,33 @@ ValueError: Computed output size would be negative. Received `inputs shape=(None
 ```
 
 I need to format the data 
+
+```
+Epoch 1/12
+1095/1095 ━━━━━━━━━━━━━━━━━━━━ 25s 22ms/step - accuracy: 0.9989 - loss: 0.0104 - val_accuracy: 0.1387 - val_loss: 49.9532
+Epoch 2/12
+1095/1095 ━━━━━━━━━━━━━━━━━━━━ 21s 19ms/step - accuracy: 1.0000 - loss: 0.0000e+00 - val_accuracy: 0.1387 - val_loss: 49.9532
+Epoch 3/12
+1095/1095 ━━━━━━━━━━━━━━━━━━━━ 21s 19ms/step - accuracy: 1.0000 - loss: 0.0000e+00 - val_accuracy: 0.1387 - val_loss: 49.9532
+Epoch 4/12
+1095/1095 ━━━━━━━━━━━━━━━━━━━━ 20s 18ms/step - accuracy: 1.0000 - loss: 0.0000e+00 - val_accuracy: 0.1387 - val_loss: 49.9532
+Epoch 5/12
+1095/1095 ━━━━━━━━━━━━━━━━━━━━ 21s 19ms/step - accuracy: 1.0000 - loss: 0.0000e+00 - val_accuracy: 0.1387 - val_loss: 49.9532
+Epoch 6/12
+1095/1095 ━━━━━━━━━━━━━━━━━━━━ 21s 19ms/step - accuracy: 1.0000 - loss: 0.0000e+00 - val_accuracy: 0.1387 - val_loss: 49.9532
+Epoch 7/12
+1095/1095 ━━━━━━━━━━━━━━━━━━━━ 22s 20ms/step - accuracy: 1.0000 - loss: 0.0000e+00 - val_accuracy: 0.1387 - val_loss: 49.9532
+Epoch 8/12
+1095/1095 ━━━━━━━━━━━━━━━━━━━━ 23s 21ms/step - accuracy: 1.0000 - loss: 0.0000e+00 - val_accuracy: 0.1387 - val_loss: 49.9532
+Epoch 9/12
+1095/1095 ━━━━━━━━━━━━━━━━━━━━ 39s 19ms/step - accuracy: 1.0000 - loss: 0.0000e+00 - val_accuracy: 0.1387 - val_loss: 49.9532
+Epoch 10/12
+1095/1095 ━━━━━━━━━━━━━━━━━━━━ 22s 21ms/step - accuracy: 1.0000 - loss: 0.0000e+00 - val_accuracy: 0.1387 - val_loss: 49.9532
+Epoch 11/12
+1095/1095 ━━━━━━━━━━━━━━━━━━━━ 25s 22ms/step - accuracy: 1.0000 - loss: 0.0000e+00 - val_accuracy: 0.1387 - val_loss: 49.9531
+Epoch 12/12
+1095/1095 ━━━━━━━━━━━━━━━━━━━━ 24s 22ms/step - accuracy: 1.0000 - loss: 0.0000e+00 - val_accuracy: 0.1387 - val_loss: 49.9531
+685/685 - 2s - 3ms/step - accuracy: 0.8276 - loss: 9.9785
+Test loss: 9.978506088256836
+Test accuracy: 0.8276082873344421
+```

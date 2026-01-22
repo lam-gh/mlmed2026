@@ -16,6 +16,9 @@
           system,
           ...
         }:
+        let
+          tex = pkgs.texlive.combine { inherit (pkgs.texlive) scheme-tetex; };
+        in
         {
           _module.args.pkgs = import inputs.nixpkgs {
             inherit system;
@@ -86,10 +89,11 @@
               };
 
             packages = builtins.attrValues {
-              inherit (pkgs.python312Packages) scikit-learn keras;
+              inherit (pkgs.python312Packages) scikit-learn keras tensorflow;
               inherit (pkgs) zlib pylint;
               inherit (pkgs) git pre-commit;
               inherit (pkgs) nix-index nix-prefetch-github nix-prefetch-scripts;
+              inherit tex;
             };
           };
           formatter = pkgs.nixfmt-rfc-style;
