@@ -60,11 +60,6 @@
                     mypy
                     pylint
                     ipython
-
-                    pandas
-                    numpy
-                    matplotlib
-                    jupyter
                   '';
                 };
 
@@ -89,7 +84,20 @@
               };
 
             packages = builtins.attrValues {
-              inherit (pkgs.python312Packages) scikit-learn keras tensorflow;
+              inherit (pkgs.python312Packages)
+                pandas
+                numpy
+                matplotlib
+                jupyter
+                scikit-learn
+                keras
+                tensorflow
+                torch
+                torchvision
+                opencv-python
+                imutils
+                tqdm
+                ;
               inherit (pkgs) zlib pylint;
               inherit (pkgs) git pre-commit;
               inherit (pkgs) nix-index nix-prefetch-github nix-prefetch-scripts;

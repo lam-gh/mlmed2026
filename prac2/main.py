@@ -43,8 +43,6 @@ def main():
     # Load images
     keras.utils.image_dataset_from_directory(
         directory="../data/hc18/",
-
-    
     )
 
     #####
