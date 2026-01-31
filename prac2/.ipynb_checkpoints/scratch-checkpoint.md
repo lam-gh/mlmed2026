@@ -173,30 +173,3 @@ This has worked successfully
 ```
 image.unsqueeze(0).unsqueeze(0)
 ```
-
-My masks show NOTHING of value!!! Absolute TOTAL PITCH DARK! Whyyyy~~~~~~~
-
-I asked Gemini :DDDD 
-
-Gemini says... 
-> Dude your loss function is ass.
-> You shouldn't be using BCEWithLogitsLoss
-> You should use Dice Loss instead
-> It's not implemented so DIY!
-> Also, dilate the pixels of ground truth mask in the first few iteration so the model has a larger target to hit
-
-BCEWithLogitsLoss: Binary Cross Entropy With Logits Loss
-Dice Loss: 
-
-Me thinks... 
-- Why not BCEWithLogitsLoss?
-    - It performs badly on semantic segmentation tasks because of class imbalance.
-    - most of the time we only have 10~20% of target against majority background.
-    - this loss function will just default to pitch black 
-- Why Dice Loss?
-    - solves the above problems
-    - it combines 
-- How to dilate the pixels?
-- When do I stop dilation?
-
-ref: https://www.kaggle.com/discussions/getting-started/133156
