@@ -72,6 +72,7 @@
                     opencv-python
                     imutils
                     tqdm
+                    segmentation-models-pytorch
                   '';
                 };
 
