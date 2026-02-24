@@ -11,12 +11,35 @@
 
 \maketitle
 
-\section{Data}
+\section{Introduction}
 
-This is a toy deep learning model trained on the PhysionNet’s MIT-BIH dataset to
-classify heartbeats. 
+This report is an attempt at recreating the result obtained from ECG heartbeat
+classficiation paper (Mohammaed et al 2018).
+% Put this in the reference https://arxiv.org/abs/1805.00794
 
-\section{Model}
+The paper discuss the classification of heartbeats to classify 5 different
+arrhythmias (irregularities in heartbeat) with the AAMI EC57 standard (I don't
+know what this is.) In addition, this paper also discuss a method to knowledge
+transfer to myocardial infarction. I don't know how significant that is, so I
+will not use the PTB Diagnostic dataset in this report.
+
+The data is obtained from the author's Kaggle dataset.
+% Link this https://www.kaggle.com/datasets/shayanfazeli/heartbeat
+
+I limit the scope of this report to the classification of heartbeats without
+discussing knowledge transfer so I will use the processed MIT BIH Arrhythmia
+dataset only.
+
+\section{Data Description}
+
+So what's in the MIT BIH Arrhythmia dataset?
+
+First of all this is the processed data from the original dataset.
+% Reference this: https://physionet.org/content/mitdb/1.0.0/
+
+
+
+\section{Model Implementation}
 
 The model used in this report has a basic convolutional architecture.
 The model is composed of three conv1d layers. Each have 32 kernels of size 5
