@@ -1,21 +1,24 @@
 import pandas as pd
-import numpy as np
 import keras
 from keras import layers
-from keras import ops
 from keras.utils import to_categorical
 
 
 def my_model():
+    # input
     inputs = keras.Input(shape=(186, 1))
-    # conv x3
+    # conv
     x = layers.Conv1D(filters=32, kernel_size=5, activation="relu")(inputs)
+
+    # RESIDUAL BLOCKS #
     x = layers.Conv1D(filters=32, kernel_size=5, activation="relu")(x)
     x = layers.Conv1D(filters=32, kernel_size=5, activation="relu")(x)
     # pool
     x = layers.MaxPool1D(pool_size=5, strides=2)(x)
     # flatten
     x = layers.Flatten()(x)
+    #######
+
     # fully connected (relu)
     x = layers.Dense(32, activation="relu")(x)
     # fully connected (softmax)
