@@ -1,0 +1,76 @@
+\documentclass[conference]{IEEEtran} \usepackage{url}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\title{Labwork 2}
+\author{
+	Le-Chi Thanh Lam\\
+	\texttt{23BI14248}
+}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+This report details the implementation of a U-Net based segmentation model for
+measuring fetal head circumference from ultrasound images as part of the second
+labwork.
+
+\section{Data Description}
+
+The dataset is sourced from the HC18 Grand Challenge. It contains 1,334
+two-dimensional ultrasound images of the fetal head standard plane. The
+collection consists of 999 training images and 335 test images.
+
+Each image has the resolution of $800 \times 540$ pixels with pixel size
+ranging from 0.052 to 0.326 mm. Pixel sizes are provided via CSV files. For the
+training set, manual annotations and head circumference measurements (in mm)
+are included.
+
+In this report, the original test set is not used due to the absence of public
+labels. Instead, the 999 training images are split into 899 images for training
+and 100 images for validation and performance measurement.
+
+\section{Model architecture}
+
+The model utilizes the U-Net architecture from the
+\texttt{segmentation-models.pytorch}library \cite{smp}. A ResNet50 backbone
+with ImageNet pretrained weights serves as the encoder. Since the input
+images are grayscale, the model is configured with a single input channel.
+For binary segmentation, the output class is set to 1. Spatial and channel
+squeeze-and-exication (scSE) attention modules are integrated into the decoder.
+
+\section{Training}
+
+Images are resized to $512 \times 512$ pixels. Data augmentation includes random horizontal flips ($p=0.5$), shifting, scaling, and rotation. Pixel values are normalized and converted to tensors using \texttt{Albumentations} and \texttt{torchvision}.
+
+The model is training for 40 epochs with a batch size of 8. We utilize the
+Diceloss function and the AdamW optimizer with a learning rate of $1e-4$
+and weight decay of $1e-5$. Mixed precision training is implemented via
+\texttt{GradScaler}.
+
+\section{Result}
+
+Post-processing involves \texttt{cv2.findContours} to extract the mask boundary.
+These contours are used to fit an ellipse via \texttt{cv2.fitEllipse}. The final
+head circumference is calculated using Ramanujan's approximation for ellipse
+circumference.
+
+On the 100-image validation set, the model achieved an absolute mean difference
+and standard deviation of $23.76 \pm 12.67$ mm. This performance is lower than
+the top tier results on the HC18 leaderboard, indicating a need for further
+hyperparameter tuning or architectural refinement.
+
+\begin{thebibliography}{1}
+\bibitem{smp}
+P. Yakubovskiy, "Segmentation Models Pytorch," GitHub, 2020. [Online]. Available: \url{https://github.com/qubvel/segmentation_models.pytorch}.
+\bibitem{hc18}
+"HC18 - Grand Challenge," [Online]. Available: \url{https://hc18.grand-challenge.org/}.
+\end{thebibliography}
+
+\end{document}
